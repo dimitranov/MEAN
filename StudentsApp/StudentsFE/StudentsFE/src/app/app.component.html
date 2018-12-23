@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+    <div class="row">
+      <h1 class="m-5">Sudents manager</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+
+        <div *ngIf="studentsList.length === 0">
+          <h5 class="text-center">No students yet :(</h5> 
+        </div>
+
+        <div class="form-group">
+          <label for="facultyNumber">Faculty Number</label>
+          <input type="text" [value]="nameSunstring" (input)="onSearchChange($event.target.value)" class="form-control" id="facultyNumber" placeholder="Enter faculty number">
+        </div>
+        <div *ngIf="studentsList.length !== 0">
+        
+          <div *ngFor="let std of studentsList" class="card mb-3" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{std.name}} {{std.lname}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Birth Day: {{std.birthDate}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Faculty Number: {{std.facultyNumber}}</h6>
+              <button class="btn btn-primary mr-2 btn-sm" (click)="selectUserForEdit(std)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="selectUserForDelete(std._id)">Delete</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-6">
+        <app-students-form (actionOver)="pullAllusers()" [user]="selectedUser"></app-students-form>
+      </div>
+    </div>
+</div>
+

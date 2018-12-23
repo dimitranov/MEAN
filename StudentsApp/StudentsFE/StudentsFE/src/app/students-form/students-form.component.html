@@ -1,0 +1,32 @@
+<div>
+  <h3>Form</h3>
+  <button *ngIf="!formIsVisible" class="btn btn-success" (click)="showForm()">Create User</button>
+  <div class="well my-3" *ngIf="formIsVisible">
+
+      <div class="form-group">
+        <label for="name">First Name</label>
+        <input type="text" [(ngModel)]="name" class="form-control" id="name" aria-describedby="name" placeholder="Enter irst name">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">Last Name</label>
+        <input type="text" [(ngModel)]="lname"  class="form-control" id="exampleInputPassword1" placeholder="Enter last Name">
+      </div>
+
+      <div class="form-group">
+        <label for="facultyNumber">Faculty Number</label>
+        <input type="number" [(ngModel)]="facultyNumber" class="form-control" id="facultyNumber" placeholder="Enter faculty number">
+      </div>
+
+      <div class="form-group">
+        <label for="birthDate">Birth Date</label>
+        <input type="date" [(ngModel)]="birthDate"  class="form-control" id="birthDate" placeholder="Pick Birth Day">
+      </div>
+
+      <p class="text-danger" *ngIf="errorMessage.length > 0">{{errorMessage}}</p>
+
+      <button type="button" (click)="handleSubmit()" class="btn btn-primary my-3">{{ user ? "Edit" : "Create"}}</button>
+      <button type="button" (click)="sdada()" class="btn btn-primary my-3">log}</button>
+      
+    </div>
+</div>
